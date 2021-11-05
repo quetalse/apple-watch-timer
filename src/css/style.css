@@ -5,15 +5,173 @@
 }
 
 body{
-    background-color: #141515;
+    background-color: #363737;
     width: 100%;
     height: 100vh;
+    font: 12px Avenir Next, Helvetica;
 }
 
 main{
-    background-image: url("../assets/applewatchmackup2.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.mockup{
+    /*background-image: url("../assets/1.png");*/
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: contain;*/
+    height: 100%;
+    overflow: hidden;
+}
+
+.screen{
+
+    /*border: 1px solid white;*/
+    border-radius: 55px;
+    width: 334px;
+    height: 390px;
+    margin-right: 20px;
+    margin-top: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    position: absolute;
+}
+
+.screen__timer{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    /*border: 1px solid white;*/
+    position: relative;
+}
+
+.timer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+}
+
+.timer__anchor{
+    width: 10px;
+    height: 10px;
+    border: 2px solid #FA9F22;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.timer__basel .trait{
+    background: white;
+    width: 1px;
+    height: 13px;
+    transform: translateX(-50%) translateY(-160px);
+    position: absolute;
+}
+
+.timer__basel .trait_6deg{
+    background: white;
+    width: 1px;
+    height: 13px;
+    transform: rotate(6deg) translateX(-50%) translateY(-150px);
+    position: absolute;
+    /*transform: translate(-50%,-100%) translateY(-127px);*/
+}
+
+.timer__basel .trait_12deg{
+    background: white;
+    width: 1px;
+    height: 13px;
+    transform: rotate(12deg) translateX(-50%) translateY(-150px);
+    position: absolute;
+    /*transform: translate(-50%,-100%) translateY(-127px);*/
+}
+
+.timer__basel .trait_18deg{
+    background: white;
+    width: 1px;
+    height: 13px;
+    transform: rotate(18deg) translateX(-50%) translateY(-150px);
+    position: absolute;
+    /*transform: translate(-50%,-100%) translateY(-127px);*/
+}
+
+.timer__basel .trait_360deg{
+    background: white;
+    width: 1px;
+    height: 13px;
+    transform: rotate(360deg) translateX(-50%) translateY(-150px);
+    position: absolute;
+    /*transform: translate(-50%,-100%) translateY(-127px);*/
+}
+
+.timer__basel .trait__value{
+    color: white;
+    position: absolute;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.screen__control{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10%;
+}
+
+.control-btn{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    outline-style: none;
+    background-color: transparent;
+    border: 1px solid white;
+    position: relative;
+}
+
+.control-btn::after{
+    content: "";
+    cursor: pointer;
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    background-color: inherit;
+    display: block;
+    border-radius: 50%;
+    top: 5%;
+    left: 5%;
+}
+
+.control-btn_reset{
+    border: 1px solid rgb(255, 59, 48);
+}
+.control-btn_reset::after{
+    background-color: rgb(255, 59, 48);
+}
+
+.control-btn_pause{
+    border: 1px solid rgb(52, 199, 89);
+}
+.control-btn_pause::after{
+    background-color: rgb(52, 199, 89);
+}
+
+
+
