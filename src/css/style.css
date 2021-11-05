@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #141515;
+    width: 100%;
+    height: 100vh;
+}
+
+main{
+    background-image: url("../assets/applewatchmackup2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+}
