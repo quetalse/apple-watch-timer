@@ -59,6 +59,13 @@ main{
     height: 0;
 }
 
+.timer .logo{
+    width: 36px;
+    position: absolute;
+    filter: contrast(.75);
+    transform: translate(-50%, -80px);
+}
+
 .timer__anchor{
     width: 10px;
     height: 10px;
@@ -147,6 +154,27 @@ main{
     position: absolute;
 }
 
+
+.timer__value{
+    color: white;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    position: absolute;
+    text-align: center;
+    transform: translate(-50%, 50px);
+}
+
+.timer__value .minutes::after{
+    content: ":";
+    font-size: inherit;
+}
+.timer__value .seconds::after{
+    content: ",";
+    font-size: inherit;
+}
 
 .screen__control{
     width: 100%;

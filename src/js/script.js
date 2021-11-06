@@ -27,8 +27,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
         for(var i = 1 / 4; i <= 60; i = i+1/4){
 
-            console.log('i', i)
-
             let trait = document.createElement('div');
             trait.classList.add('trait');
 
@@ -58,6 +56,40 @@ document.addEventListener('DOMContentLoaded', function(){
 
     }
 
+    function setTimerValue(milliseconds){
+        let timerValueMinutes = document.querySelector('.minutes');
+        let timerValueSeconds = document.querySelector('.seconds');
+        let timerValueMilliseconds = document.querySelector('.milliseconds');
+
+        let calculateMinutes = Math.floor(milliseconds / 60000);
+
+        // if(calculateMinutes === 0){
+        //     timerValueMinutes.innerHTML = "00";
+        // }else{
+            if(calculateMinutes < 10){
+                timerValueMinutes.innerHTML = '0' + calculateMinutes;
+            }else{
+                timerValueMinutes.innerHTML = '' + calculateMinutes;
+            }
+        // }
+
+        let calculateSeconds = Math.floor((milliseconds % 60000) / 1000);
+
+        if(calculateSeconds < 10){
+            timerValueSeconds.innerHTML = '0' + calculateSeconds;
+        }else{
+            timerValueSeconds.innerHTML = '' + calculateSeconds;
+        }
+
+        let calculatedMilliseconds = milliseconds % 1000
+
+        if(calculatedMilliseconds < 10){
+            timerValueMilliseconds.innerHTML = ('0' + calculatedMilliseconds).substring(0, 2);
+        }else{
+            timerValueMilliseconds.innerHTML = ('' + calculatedMilliseconds).substring(0, 2);
+        }
+
+    }
 
     function animationSecondArrow(){
         let timerSecondArrow = document.querySelector('.timer__second-arrow');
@@ -65,13 +97,19 @@ document.addEventListener('DOMContentLoaded', function(){
 
         setInterval(function (){
             let delta = Date.now() - startTime;
-            console.log(delta / 1000);
+            // console.log(delta / 1000);
 
             timerSecondArrow.style.transform = 'rotate(' + (delta / 1000 * 6) + 'deg)';
+
+            setTimerValue(delta)
 
         }, 10)
     }
 
     createTimerBasel();
     animationSecondArrow();
+
+
+
+
 });
