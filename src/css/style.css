@@ -71,10 +71,23 @@ main{
 .timer__basel .trait{
     background: white;
     width: 1px;
-    height: 13px;
-    transform: translateX(-50%) translateY(-160px);
+    /*height: 13px;*/
     position: absolute;
+    opacity: 0.34;
 }
+
+.timer__basel .trait_quarter{
+    height: 8px;
+}
+
+.timer__basel .trait_whole{
+    height: 13px;
+}
+
+.timer__basel .trait_major{
+    opacity: 1;
+}
+
 
 .timer__basel .trait_6deg{
     background: white;
@@ -112,21 +125,27 @@ main{
     /*transform: translate(-50%,-100%) translateY(-127px);*/
 }
 
-.timer__basel .trait__value{
+.timer__basel .trait_value{
     color: white;
+    position: absolute;
+    font-size: 18px;
+}
+
+.timer__second-arrow .front{
+    background: #FA9F22;
+    height: 148px;
+    width: 2px;
+    transform: translate(-50%, -100%) translateY(-4px);
     position: absolute;
 }
 
-
-
-
-
-
-
-
-
-
-
+.timer__second-arrow .back{
+    background: #FA9F22;
+    height: 20px;
+    width: 2px;
+    transform: translate(-50%) translateY(4px);
+    position: absolute;
+}
 
 
 .screen__control{
