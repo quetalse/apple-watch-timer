@@ -1,5 +1,17 @@
 document.addEventListener('DOMContentLoaded', function(){
 
+    let buttonStart = document.querySelector('.control-btn_start');
+    let buttonReset = document.querySelector('.control-btn_reset');
+    let timerSecondArrow = document.querySelector('.timer__second-arrow');
+
+
+    let timerValueMinutes = document.querySelector('.minutes');
+    let timerValueSeconds = document.querySelector('.seconds');
+    let timerValueMilliseconds = document.querySelector('.milliseconds');
+
+    let cycle;
+    let watchIsTick = false;
+
     function createTimerBasel(){
 
         let timerBasel = document.querySelector('.timer__basel');
@@ -57,21 +69,14 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     function setTimerValue(milliseconds){
-        let timerValueMinutes = document.querySelector('.minutes');
-        let timerValueSeconds = document.querySelector('.seconds');
-        let timerValueMilliseconds = document.querySelector('.milliseconds');
 
         let calculateMinutes = Math.floor(milliseconds / 60000);
 
-        // if(calculateMinutes === 0){
-        //     timerValueMinutes.innerHTML = "00";
-        // }else{
-            if(calculateMinutes < 10){
-                timerValueMinutes.innerHTML = '0' + calculateMinutes;
-            }else{
-                timerValueMinutes.innerHTML = '' + calculateMinutes;
-            }
-        // }
+        if(calculateMinutes < 10){
+            timerValueMinutes.innerHTML = '0' + calculateMinutes;
+        }else{
+            timerValueMinutes.innerHTML = '' + calculateMinutes;
+        }
 
         let calculateSeconds = Math.floor((milliseconds % 60000) / 1000);
 
@@ -92,12 +97,11 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     function animationSecondArrow(){
-        let timerSecondArrow = document.querySelector('.timer__second-arrow');
+
         let startTime = Date.now();
 
-        setInterval(function (){
+        cycle = setInterval(function (){
             let delta = Date.now() - startTime;
-            // console.log(delta / 1000);
 
             timerSecondArrow.style.transform = 'rotate(' + (delta / 1000 * 6) + 'deg)';
 
@@ -107,9 +111,20 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     createTimerBasel();
-    animationSecondArrow();
 
+    buttonStart.addEventListener('click', function(){
+        if(!watchIsTick){
+            animationSecondArrow();
+            watchIsTick = true
+        }
+    });
 
-
-
+    buttonReset.addEventListener('click', function(){
+        clearInterval(cycle);
+        watchIsTick = false;
+        timerSecondArrow.style.transform = 'rotate(' + 0 + 'deg)';
+        timerValueMinutes.innerHTML = '00';
+        timerValueSeconds.innerHTML = '00';
+        timerValueMilliseconds.innerHTML = '00';
+    });
 });
